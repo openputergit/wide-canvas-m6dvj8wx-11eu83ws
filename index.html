@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Employee Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            color: #e2e8f0;
+        }
+        .ai-card {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .ai-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .voice-wave {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            animation: wave 1.5s ease-in-out infinite;
+        }
+        @keyframes wave {
+            0% { transform: scaleY(0.2); }
+            50% { transform: scaleY(1); }
+            100% { transform: scaleY(0.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen p-4 md:p-8">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-blue-500">AI Employee Hub</h1>
+            <p class="text-xl text-gray-400">Your Personal AI Workforce</p>
+        </header>
+
+        <!-- Voice Command Section -->
+        <div class="max-w-4xl mx-auto mb-12 bg-gray-900 rounded-xl p-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button id="voiceCommand" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center space-x-2">
+                        <i class="bi bi-mic-fill"></i>
+                        <span>Voice Command</span>
+                    </button>
+                    <div id="voiceStatus" class="hidden space-x-1">
+                        <div class="voice-wave h-4 w-1 rounded"></div>
+                        <div class="voice-wave h-6 w-1 rounded"></div>
+                        <div class="voice-wave h-8 w-1 rounded"></div>
+                    </div>
+                </div>
+                <div class="flex space-x-2">
+                    <span class="px-3 py-1 bg-blue-900 rounded-full text-sm">EN</span>
+                    <span class="px-3 py-1 bg-blue-900 rounded-full text-sm">HI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Employees Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            <!-- AI Cards -->
+            <div class="ai-card rounded-xl p-6 text-center">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
+                    <i class="bi bi-code-slash text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Web Dev AI</h3>
+                <p class="text-gray-400 text-sm">Frontend & Backend Expert</p>
+            </div>
+
+            <div class="ai-card rounded-xl p-6 text-center">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-purple-600 flex items-center justify-center">
+                    <i class="bi bi-graph-up text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Data Science AI</h3>
+                <p class="text-gray-400 text-sm">Analytics & ML Specialist</p>
+            </div>
+
+            <div class="ai-card rounded-xl p-6 text-center">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-red-600 flex items-center justify-center">
+                    <i class="bi bi-shield-lock text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Security AI</h3>
+                <p class="text-gray-400 text-sm">Cybersecurity Expert</p>
+            </div>
+
+            <div class="ai-card rounded-xl p-6 text-center">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-green-600 flex items-center justify-center">
+                    <i class="bi bi-box text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Blockchain AI</h3>
+                <p class="text-gray-400 text-sm">DLT Specialist</p>
+            </div>
+
+            <div class="ai-card rounded-xl p-6 text-center">
+                <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-yellow-600 flex items-center justify-center">
+                    <i class="bi bi-laptop text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Software Dev AI</h3>
+                <p class="text-gray-400 text-sm">Full-Stack Developer</p>
+            </div>
+
+            <!-- Add remaining AI cards similarly -->
+        </div>
+
+        <!-- Integration Bar -->
+        <div class="fixed bottom-0 left-0 right-0 bg-gray-900 p-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex space-x-4">
+                    <i class="bi bi-github text-2xl"></i>
+                    <i class="bi bi-google text-2xl"></i>
+                    <i class="bi bi-shop text-2xl"></i>
+                </div>
+                <div class="pulse bg-blue-600 px-4 py-2 rounded-full">
+                    <span>System Status: Active</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Voice Command Functionality
+        const voiceButton = document.getElementById('voiceCommand');
+        const voiceStatus = document.getElementById('voiceStatus');
+        let isListening = false;
+
+        voiceButton.addEventListener('click', () => {
+            isListening = !isListening;
+            if (isListening) {
+                voiceStatus.classList.remove('hidden');
+                voiceStatus.classList.add('flex');
+                voiceButton.classList.add('bg-red-600');
+                voiceButton.classList.remove('bg-blue-600');
+                // Here you would typically implement actual voice recognition
+                startVoiceRecognition();
+            } else {
+                voiceStatus.classList.add('hidden');
+                voiceStatus.classList.remove('flex');
+                voiceButton.classList.remove('bg-red-600');
+                voiceButton.classList.add('bg-blue-600');
+                stopVoiceRecognition();
+            }
+        });
+
+        function startVoiceRecognition() {
+            if ('webkitSpeechRecognition' in window) {
+                const recognition = new webkitSpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onresult = (event) => {
+                    const command = event.results[event.results.length - 1][0].transcript;
+                    console.log('Command received:', command);
+                    // Implement command processing logic here
+                };
+
+                recognition.start();
+            }
+        }
+
+        function stopVoiceRecognition() {
+            // Implement stop logic
+        }
+
+        // Add hover effects to AI cards
+        document.querySelectorAll('.ai-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.querySelector('i').classList.add('text-white');
+            });
+            card.addEventListener('mouseout', () => {
+                card.querySelector('i').classList.remove('text-white');
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
